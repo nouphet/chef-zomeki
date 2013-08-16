@@ -1,0 +1,15 @@
+development:
+  title: ZOMEKI
+  uri: http://zomeki.example.com/
+  proxy:
+
+test:
+  title: ZOMEKI
+  uri: http://zomeki.example.com/
+  proxy:
+
+production:
+  title: <%= node[:zomeki][:site_title]  %>
+  uri: <%= node[:zomeki][:site_url]  %>
+  proxy:
+
