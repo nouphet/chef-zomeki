@@ -1,6 +1,12 @@
 
 gem_package "rake" do
+    version '0.9.2.2'
+    action  :remove
+end
+
+gem_package "rake" do
     version '0.9.2'
+    action  :install
 end
 
 gem_package "multi_json" do
@@ -16,6 +22,7 @@ bash "gem install bundler" do
     user "root"
     cwd "/var/share/zomeki/"
     code <<-EOH
+    cd /var/share/zomeki/
     gem install bundler
     bundle install --without test development
     EOH
