@@ -15,9 +15,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       :mysql => {
-        :server_root_password => 'root',
+        :server_root_password   => 'root',
         :server_debian_password => 'root',
-        :server_repl_password => 'root'
+        :server_repl_password   => 'root'
       }
      }
 
@@ -27,7 +27,12 @@ Vagrant.configure("2") do |config|
         "recipe[zomeki::install_ruby]",
         "recipe[zomeki::gem]",
         "recipe[zomeki::passenger]",
-        "recipe[zomeki::zomeki]"
+        "recipe[zomeki::zomeki]",
+        "recipe[zomeki::lame]",
+        "recipe[zomeki::darts]",
+        "recipe[zomeki::chasen]",
+        "recipe[zomeki::ipadic]"
     ]
   end
 end
+

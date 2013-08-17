@@ -6,11 +6,18 @@ template "/var/share/zomeki/config/core.yml" do
 end
 
 execute "create symblink zomeki.conf for Apache" do
-  command "ln -s /var/share/zomeki/config/virtual-hosts/zomeki.conf /etc/httpd/conf.d/"
+  command "ln -sf /var/share/zomeki/config/virtual-hosts/zomeki.conf /etc/httpd/conf.d/"
 end
 
-execute "create symblink zomeki.conf for Apache" do
+execute "create sites.conf for ZOMEKI" do
   command "cp /var/share/zomeki/config/virtual-hosts/sites.conf.sample /var/share/zomeki/config/virtual-hosts/sites.conf"
+end
+
+file "/var/share/zomeki/config/virtual-hosts/sites.conf" do
+  owner "zomeki"
+  group "zomeki"
+  mode  "0755"
+  action :create
 end
 
 #bash "setup database for zomeki" do
