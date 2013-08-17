@@ -22,4 +22,11 @@ rbenv_gem "bundler" do
   ruby_version "1.9.3-p374"
 end
 
+bash 'install_bundles' do
+  cwd "/var/share/zomeki/"
+  code <<-EOH
+    bundle install --without development test
+  EOH
+  only_if { version.to_f >= 1.3.5 }
+end
 
